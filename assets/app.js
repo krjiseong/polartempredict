@@ -1596,7 +1596,9 @@
     input.placeholder = "값 입력";
     input.inputMode = "decimal";
 
-    const attributes = { min: range.min, max: range.max, step: field.step };
+    // min/max는 학습자료 기반 권장 입력범위만 제한하고,
+    // step은 any로 두어 범위 안의 모든 실수값을 입력할 수 있게 한다.
+    const attributes = { min: range.min, max: range.max, step: "any" };
     for (const [attr, value] of Object.entries(attributes)) {
       if (value !== undefined) input[attr] = String(value);
     }
