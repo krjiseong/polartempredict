@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="세종과학기지 KPDC·NASA 관측자료 기반 XGBoost 지상기온 예측">
-  <title>Polar Temp Predict</title>
+  <title>Temperature Prediction Models</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -15,27 +15,12 @@
     <div class="brand-mark" aria-hidden="true">P</div>
     <div>
       <p class="eyebrow">KING SEJONG STATION · ANTARCTICA</p>
-      <h1>Polar Temp Predict</h1>
+      <h1>Temperature Prediction Models</h1>
       <p class="subtitle">KPDC·CALIPSO·MERRA-2 기반 지상기온 예측</p>
     </div>
   </header>
 
   <main class="page-shell">
-    <section class="panel intro-panel">
-      <div>
-        <span class="badge">GitHub Pages · Browser Prediction</span>
-        <h2>모델을 고르고 관측값을 입력한다.</h2>
-        <p>
-          네 개의 최종 XGBoost 모델을 브라우저에서 직접 실행한다.
-          입력자료와 예측값은 외부 서버로 전송되지 않는다.
-        </p>
-      </div>
-      <div class="utc-card">
-        <span class="utc-label">사이트 주소</span>
-        <strong>krijseong.github.io/polartempredict</strong>
-        <small>GitHub 저장소 이름을 <b>polartempredict</b>로 만들면 이 주소로 접속한다.</small>
-      </div>
-    </section>
 
     <section class="panel">
       <div class="section-heading">
@@ -110,15 +95,14 @@
       <div class="result-icon" aria-hidden="true">°C</div>
       <div>
         <p class="result-label">예측 결과</p>
-        <h2 id="result-value">관측값을 입력한 뒤 예측을 실행한다.</h2>
+        <h2 id="result-value">관측값을 입력한 뒤 예측을 실행해 주세요.</h2>
         <p id="result-description">출력은 세종과학기지 지상기온 T(°C)이다.</p>
       </div>
     </section>
 
-    <section class="notice">
-      <strong>해석 주의</strong>
+    <section class="notice" aria-label="결과 참고사항">
       <p>
-        본 결과는 2010–2019년 연구자료로 학습한 추정치이며 공식 실시간 관측값이나 기상예보가 아니다.
+        본 결과는 2010–2019년 학습자료를 기반으로 산출한 추정치이며, 공식 실시간 온도 관측값이나 기상예보가 아닙니다.
       </p>
     </section>
   </main>

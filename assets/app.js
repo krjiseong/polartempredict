@@ -336,7 +336,7 @@
 
     form.hidden = true;
     loadingState.hidden = false;
-    loadingState.textContent = `${MODEL_PATHS[name].label} 모델을 불러오는 중이다.`;
+    loadingState.textContent = `${MODEL_PATHS[name].label} 모델을 불러오는 중입니다.`;
     renderFields();
     clearResult();
 
@@ -346,7 +346,7 @@
       form.hidden = false;
     } catch (error) {
       loadingState.hidden = false;
-      loadingState.textContent = `${error.message} GitHub Pages에서 실행해야 한다.`;
+      loadingState.textContent = `${error.message} GitHub Pages에서 실행해 주세요.`;
       showError(error.message);
     }
   }
@@ -360,14 +360,14 @@
 
   function clearResult() {
     resultPanel.classList.remove("has-result", "has-error");
-    resultValue.textContent = "관측값을 입력한 뒤 예측을 실행한다.";
+    resultValue.textContent = "관측값을 입력한 뒤 예측을 실행해 주세요.";
     resultDescription.textContent = "출력은 세종과학기지 지상기온 T(°C)이다.";
   }
 
   function showError(message) {
     resultPanel.classList.remove("has-result");
     resultPanel.classList.add("has-error");
-    resultValue.textContent = "예측을 완료하지 못했다.";
+    resultValue.textContent = "예측을 완료하지 못했습니다.";
     resultDescription.textContent = message;
   }
 

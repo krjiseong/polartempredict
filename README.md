@@ -1,9 +1,9 @@
-# Polar Temp Predict
+# Temperature Prediction Models
 
 배포 주소:
 
 ```text
-https://krijseong.github.io/polartempredict/
+https://krjiseong.github.io/polartempredict/
 ```
 
 ## GitHub에 올리는 방법
@@ -19,7 +19,7 @@ https://krijseong.github.io/polartempredict/
 6. 잠시 후 아래 주소로 접속한다.
 
 ```text
-https://krijseong.github.io/polartempredict/
+https://krjiseong.github.io/polartempredict/
 ```
 
 ## 구성
