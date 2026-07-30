@@ -589,3 +589,37 @@ body::before {
   font-size: 0.75rem;
   line-height: 1.6;
 }
+
+
+/* Training-domain ranges and section spacing */
+.range-hint {
+  margin-left: 0.28rem;
+  color: #82a8bb;
+  font-size: 0.72rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+#field-container > .field-section:first-child {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.field-section-title p {
+  line-height: 1.55;
+}
+
+/* A restrained polar horizon: ice shelf and distant ridgelines. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto 0 0;
+  z-index: -3;
+  height: 30vh;
+  pointer-events: none;
+  opacity: 0.34;
+  background:
+    linear-gradient(174deg, transparent 0 49%, rgba(199, 235, 246, 0.10) 49.3% 58%, transparent 58.4%),
+    linear-gradient(188deg, transparent 0 58%, rgba(111, 183, 207, 0.09) 58.3% 69%, transparent 69.4%);
+}

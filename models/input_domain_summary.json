@@ -1,0 +1,16 @@
+{
+  "example_source_files": [
+    "KPDC_atmo_CN10_merged_deg_transfer(4).xlsx",
+    "CALIPSO_MERRA2_merged_estimated_CN10.xlsx"
+  ],
+  "kpdc_prepared_rows": 87649,
+  "nasa_prepared_rows": 1028,
+  "matched_rows": 1028,
+  "example_rows_per_model": {
+    "KPDC_ONLY": 24,
+    "KPDC_MATCHED": 24,
+    "NASA_ONLY": 24,
+    "NASA_KPDC": 24
+  },
+  "note": "예시값과 표시 범위는 2010–2019년 실제 학습자료에서 생성했습니다."
+}
