@@ -1,0 +1,60 @@
+{
+  "model_name": "NASA_ONLY",
+  "purpose": "final_full_data_model_after_nested_cv",
+  "warning": "이 모델 자체에는 독립 Test 성능이 없다. 보고 성능은 Nested CV 결과를 사용한다.",
+  "analysis_years": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019
+  ],
+  "training_rows": 1028,
+  "features": [
+    "calipso_latitude",
+    "calipso_longitude",
+    "calipso_altitude_agl_km",
+    "calipso_relative_humidity_pct",
+    "calipso_pressure_hpa",
+    "calipso_n_averaged_profiles",
+    "calipso_time_span_seconds",
+    "merra2_effective_mixture_density_kg_m3",
+    "time_difference_minutes",
+    "NASA_estimated_CN10_log1p",
+    "NASA_Wind_U",
+    "NASA_Wind_V",
+    "nasa_kpdc_time_difference_minutes",
+    "hour_sin",
+    "hour_cos",
+    "doy_sin",
+    "doy_cos"
+  ],
+  "dropped_features": [],
+  "parameters": {
+    "objective": "reg:squarederror",
+    "eval_metric": "rmse",
+    "n_estimators": 902,
+    "learning_rate": 0.01,
+    "max_depth": 4,
+    "min_child_weight": 3,
+    "subsample": 0.8,
+    "colsample_bytree": 0.85,
+    "reg_alpha": 0.0,
+    "reg_lambda": 10.0,
+    "gamma": 1.0,
+    "tree_method": "hist",
+    "device": "cpu",
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "consensus_validation": {
+    "mean_RMSE": 2.3114850141500476,
+    "sd_RMSE": 0.05951284856777515,
+    "evaluated_outer_folds": 10
+  }
+}

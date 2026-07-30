@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="세종과학기지 KPDC·NASA 관측자료 기반 XGBoost 지상기온 예측">
+  <title>Polar Temp Predict</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="aurora aurora-one"></div>
+  <div class="aurora aurora-two"></div>
+
+  <header class="site-header">
+    <div class="brand-mark" aria-hidden="true">P</div>
+    <div>
+      <p class="eyebrow">KING SEJONG STATION · ANTARCTICA</p>
+      <h1>Polar Temp Predict</h1>
+      <p class="subtitle">KPDC·CALIPSO·MERRA-2 기반 지상기온 예측</p>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="panel intro-panel">
+      <div>
+        <span class="badge">GitHub Pages · Browser Prediction</span>
+        <h2>모델을 고르고 관측값을 입력한다.</h2>
+        <p>
+          네 개의 최종 XGBoost 모델을 브라우저에서 직접 실행한다.
+          입력자료와 예측값은 외부 서버로 전송되지 않는다.
+        </p>
+      </div>
+      <div class="utc-card">
+        <span class="utc-label">사이트 주소</span>
+        <strong>krijseong.github.io/polartempredict</strong>
+        <small>GitHub 저장소 이름을 <b>polartempredict</b>로 만들면 이 주소로 접속한다.</small>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="step-label">STEP 1</p>
+          <h2>모델 선택</h2>
+        </div>
+      </div>
+
+      <div class="model-grid" id="model-grid">
+        <button type="button" class="model-card is-active" data-model="KPDC_ONLY">
+          <span class="model-kicker">Ground · Full</span>
+          <strong>KPDC 전체표본</strong>
+          <small>지상 관측 전체자료 학습</small>
+        </button>
+
+        <button type="button" class="model-card" data-model="KPDC_MATCHED">
+          <span class="model-kicker">Ground · Matched</span>
+          <strong>KPDC 공통표본</strong>
+          <small>NASA 관측시점 KPDC 자료 학습</small>
+        </button>
+
+        <button type="button" class="model-card" data-model="NASA_ONLY">
+          <span class="model-kicker">Satellite</span>
+          <strong>NASA 단독</strong>
+          <small>CALIPSO·MERRA-2 자료</small>
+        </button>
+
+        <button type="button" class="model-card" data-model="NASA_KPDC">
+          <span class="model-kicker">Integrated</span>
+          <strong>NASA + KPDC</strong>
+          <small>위성·재분석·지상 결합</small>
+        </button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="step-label">STEP 2</p>
+          <h2>관측값 입력</h2>
+        </div>
+        <button type="button" class="text-button" id="fill-example">예시값 채우기</button>
+      </div>
+
+      <div class="field-section">
+        <div class="field-section-title">
+          <h3>관측시각</h3>
+          <p>학습 전처리와 동일하게 UTC 시각에서 시간·계절 피처를 자동 생성한다.</p>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label for="observation_datetime_utc">관측 날짜·시간 <span class="unit">UTC</span></label>
+            <input type="datetime-local" id="observation_datetime_utc" step="3600" required>
+            <span class="field-help">예: 2015-07-15 12:00 UTC</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="loading-state" class="status-box">모델 파일을 불러오는 중이다.</div>
+      <form id="prediction-form" class="prediction-form" hidden>
+        <div id="field-container"></div>
+
+        <div class="form-actions">
+          <button type="button" class="secondary-button" id="reset-form">초기화</button>
+          <button type="submit" class="primary-button">지상기온 예측</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="result-panel" id="result-panel" aria-live="polite">
+      <div class="result-icon" aria-hidden="true">°C</div>
+      <div>
+        <p class="result-label">예측 결과</p>
+        <h2 id="result-value">관측값을 입력한 뒤 예측을 실행한다.</h2>
+        <p id="result-description">출력은 세종과학기지 지상기온 T(°C)이다.</p>
+      </div>
+    </section>
+
+    <section class="notice">
+      <strong>해석 주의</strong>
+      <p>
+        본 결과는 2010–2019년 연구자료로 학습한 추정치이며 공식 실시간 관측값이나 기상예보가 아니다.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <span>2026 극지 빅데이터–인공지능 활용 경진대회</span>
+    <span>Team 시원한 지성</span>
+  </footer>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>
